@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set Timer</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: linear-gradient(135deg, #5a00ff, #009dff, #8a2be2);
+        background-size: 300% 300%;
+        animation: gradientMove 10s ease infinite;
+
+        font-family: Poppins, sans-serif;
+        color: white;
+    }
+
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .container {
+        width: 350px;
+        padding: 30px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        text-align: center;
+        animation: fadeIn 0.7s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        font-size: 26px;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+
+    input {
+        width: 80px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        background: rgba(255,255,255,0.25);
+        color: white;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    #display {
+        font-size: 48px;
+        margin: 20px 0;
+        font-weight: 700;
+        text-shadow: 0 0 12px rgba(255,255,255,0.5);
+    }
+
+    button {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 8px;
+        cursor: pointer;
+
+        background: linear-gradient(135deg, #00d0ff, #7000ff);
+        color: white;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    }
+
+    .pause-btn {
+        background: linear-gradient(135deg, #ff4d4d, #ff0000);
+    }
+    .resume-btn {
+        background: linear-gradient(135deg, #0099ff, #0057ff);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Set Your Timer</h2>
+
+    <div>
+        <input type="number" id="hours" placeholder="HH" min="0">
+        <input type="number" id="minutes" placeholder="MM" min="0" max="59">
+        <input type="number" id="seconds" placeholder="SS" min="0" max="59">
+    </div>
+
+    <div id="display">00:00:00</div>
+
+    <button onclick="startTimer()">Start</button>
+    <button class="pause-btn" onclick="pauseTimer()">Pause</button>
+    <button class="resume-btn" onclick="resumeTimer()">Resume</button>
+</div>
+
+<script>
+
+    let timer = null;       // Stores the interval
+    let totalSeconds = 0;   // Total seconds for countdown
+    let paused = false;     // Pause state
+
+    // Show the time on screen
+    function showTime() {
+        let h = Math.floor(totalSeconds / 3600);
+        let m = Math.floor((totalSeconds % 3600) / 60);
+        let s = totalSeconds % 60;
+
+        // Format 00:00:00
+        document.getElementById("display").innerText =
+            (String(h).padStart(2, "0")) + ":" +
+            (String(m).padStart(2, "0")) + ":" +
+            (String(s).padStart(2, "0"));
+    }
+
+    // Start Timer
+    function startTimer() {
+        clearInterval(timer);
+
+        let h = Number(document.getElementById("hours").value);
+        let m = Number(document.getElementById("minutes").value);
+        let s = Number(document.getElementById("seconds").value);
+
+        totalSeconds = h * 3600 + m * 60 + s;
+
+        if (totalSeconds <= 0) return;
+
+        paused = false;
+
+        timer = setInterval(function () {
+            if (!paused) {
+                totalSeconds--;
+                showTime();
+            }
+
+            if (totalSeconds <= 0) {
+                clearInterval(timer);
+                alert("⏰ Time's up!");
+            }
+        }, 1000);
+    }
+
+    // Pause
+    function pauseTimer() {
+        paused = true;
+    }
+
+    // Resume
+    function resumeTimer() {
+        paused = false;
+    }
+
+</script>
+
+</body>
+</html>
