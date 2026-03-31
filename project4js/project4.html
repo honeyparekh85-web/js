@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function printNumbers(n) {
+  if (n > 50) return; // stopping condition
+  console.log(n);
+  printNumbers(n + 1); // call the same function with next number
+}
+
+printNumbers(1);
+    </script>
+   
+
+</body>
+</html>
