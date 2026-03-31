@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+    class Car {
+
+        constructor(x){
+            this.carname = x;
+        }
+
+        printData(){
+            let a = `Car name is ${this.carname}`;
+            return a;
+        }
+    }
+
+    class Bike extends Car {
+
+        constructor(x, y){
+            super(x);
+            this.bikename = y;
+        }
+
+        printData(){
+            let b = `${super.printData()} and Bike name is ${this.bikename}`;
+            return b;
+        }
+    }
+
+    const obj = new Bike("Swift", "Splendor");
+
+    console.log(obj.printData());
+
+    </script>
+</body>
+</html>

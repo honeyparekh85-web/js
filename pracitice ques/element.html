@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <p id="para"></p>
+    <a href="DOM.html">link</a>
+    <script>
+        let p=document.querySelector("p")
+        p.innerText="hello"
+        p.innerHTML="<b>dawrfsdg</b>"
+
+        let a=document.querySelector("a")
+        // a.href="DOM_project.html"
+
+        //getAttritute
+        let link=a.getAttribute("href")
+        console.log(link);
+        
+        //setattribute
+        // p.setAttribute("class","box")
+
+        //add
+    //   let div=document.createElement("div")  
+    //   div.innerText="added div"
+        // div.setAttribute("class","box")
+      //prepend
+        //append
+        //after
+        //before
+        // p.before(div)
+        // p.append(div)
+        // p.prepend(div)
+
+    //    let b=document.querySelector("b")
+        let div=document.createElement("div")
+        div.innerText="newly added div"
+
+        //inside last
+        // p.append(div)
+        //inside first
+        // p.prepend(div)
+
+        //after
+        // p.after(div)
+
+        //before
+        p.before(div)
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception Handling Example</title>
+</head>
+<body>
+
+    <h1>Enter your age</h1>
+    <input type="text" placeholder="Enter your age" id="age">
+    <p id="error" style="color:red;"></p>
+    <button>Click</button>
+
+    <script>
+        let btn = document.querySelector("button");
+
+        btn.addEventListener("click", () => {
+            let age = document.querySelector("#age").value;
+            let error = document.querySelector("#error");
+            error.innerHTML = ""; // clear error
+
+            try {
+                // EMPTY CHECK
+                if (age.trim() === "") {
+                    throw "Age can't be empty";
+                }
+
+                age = Number(age);  // convert to number
+
+                // NOT A NUMBER CHECK
+                if (isNaN(age)) {
+                    throw "Age should be a number";
+                }
+
+                // AGE CHECKS
+                if (age < 18) {
+                    throw "Not an adult";
+                }
+
+                if (age >= 18) {
+                    alert("You are an adult");
+                }
+            }
+
+            catch (err) {
+                error.innerHTML = err; 
+            }
+
+            finally {
+                // optional
+                console.log("Process completed");
+            }
+        });
+    </script>
+
+</body>
+</html>
