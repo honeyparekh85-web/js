@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // University Class
+class University {
+    constructor(name) {
+        this.name = name;
+        this.departments = [];
+    }
+
+    addDepartment(dept) {
+        this.departments.push(dept);
+        console.log(`Department "${dept}" added.`);
+    }
+
+    removeDepartment(dept) {
+        const index = this.departments.indexOf(dept);
+
+        if (index !== -1) {
+            this.departments.splice(index, 1);
+            console.log(`Department "${dept}" removed.`);
+        } else {
+            console.log(`Department "${dept}" not found.`);
+        }
+    }
+
+    displayDepartments() {
+        console.log(`\nDepartments in ${this.name}:`);
+        if (this.departments.length === 0) {
+            console.log("No departments available.");
+        } else {
+            this.departments.forEach((d, i) => {
+                console.log(`${i + 1}. ${d}`);
+            });
+        }
+    }
+}
+
+// ---------------------------
+// Interactive Prompt Program
+// ---------------------------
+
+const uniName = prompt("Enter University Name:");
+const uni = new University(uniName);
+
+let running = true;
+
+while (running) {
+    const choice = prompt(
+        "Choose an option:\n" +
+        "1. Add Department\n" +
+        "2. Remove Department\n" +
+        "3. Display Departments\n" +
+        "4. Exit"
+    );
+
+    switch (choice) {
+        case "1":
+            let newDept = prompt("Enter department name to add:");
+            uni.addDepartment(newDept);
+            break;
+
+        case "2":
+            let removeDept = prompt("Enter department name to remove:");
+            uni.removeDepartment(removeDept);
+            break;
+
+        case "3":
+            uni.displayDepartments();
+            break;
+
+        case "4":
+            running = false;
+            alert("Exiting Program...");
+            break;
+
+        default:
+            alert("Invalid choice! Please select 1-4.");
+    }
+}
+
+    </script>
+</body>
+</html>
