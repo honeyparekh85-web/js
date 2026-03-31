@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Honey Animation</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            text-align:center;
+            padding-top:50px;
+        }
+
+        #nameBox{
+            font-size:40px;
+            font-weight:bold;
+            color:#6a1b9a;
+            position:relative;
+            left:0;
+            opacity:0;
+        }
+
+        button{
+            margin-top:30px;
+            padding:12px 25px;
+            font-size:16px;
+            background:#6a1b9a;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nameBox">Honey</div>
+    <button onclick="animateName()">Animate My Name</button>
+
+    <script>
+        let position = 0;
+        let opacity = 0;
+
+        function animateName(){
+            position = 0;
+            opacity = 0;
+
+            let animation = setInterval(() => {
+
+                if(position >= 300){
+                    clearInterval(animation);
+                } else {
+                    position += 3;
+                    opacity += 0.02;
+
+                    document.getElementById("nameBox").style.left = position + "px";
+                    document.getElementById("nameBox").style.opacity = opacity;
+                }
+
+            }, 20);
+        }
+    </script>
+
+</body>
+</html>
