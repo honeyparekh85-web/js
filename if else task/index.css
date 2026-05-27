@@ -6,7 +6,70 @@
         }
         .container {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto;* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: sans-serif;
+    background: white ;
+    padding: 16px
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto
+}
+
+
+
+input,
+button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px
+}
+
+input {
+    border: 1px solid gray
+}
+
+button {
+    border: 1px solid black;
+    background: black;
+    color:white;
+    cursor: pointer
+}
+
+#error {
+    color: red;
+    font-size: 14px;
+    min-height: 18px
+}
+
+#product-container {
+    margin-top: 20px
+}
+
+.card {
+    max-width: 800px;
+    background: white;
+    padding: 10px;
+    border: 1px solid gray;
+    margin: 10px 0
+}
+
+.card img {
+    item-align: center;
+    width: 60%;
+    height: 140px;
+    object-fit: contain
+}
+
+.card h3,
+p {
+    margin: 6px 0
+}
             background: white;
             padding: 16px;
             border-radius: 8px;
