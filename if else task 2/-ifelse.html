@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+</head>
+<body>
+    
+<div class="login-form">
+    
+    <input type="text"placeholder="enter Email. " id="Emailid">
+<input type="text" placeholder="Enter Password." id="password">
+ <button onclick="authLogin()">Login</button>
+</div>
+
+<script>
+    function authLogin(){
+            let email = document.getElementById('Emailid').value;
+            let password = document.getElementById('password').value;
+
+            if(email === "" || password === ""){
+                alert("All filed are required.!");
+                return;
+            }
+
+            if(email === "honeyparekh85@gmail.com" && password === "@123"){
+                window.location.href = 'index.html';
+            }
+            else if(email === "admin12@gmail.com" && password === "admin#123"){
+                 window.location.href = 'admin.html';  
+            }
+            else{
+                alert("Invalid email and password.!!");
+            }
+        } 
+    </script>
+
+</body>
+</html>
