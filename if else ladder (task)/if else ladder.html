@@ -1,0 +1,86 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Change</title>
+
+    <style>
+        body{
+            height: 100vh;
+                margin:0;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+              
+        }
+
+        .btn-group button{
+            margin:20px;
+            padding:12px 24px;
+            border:0;
+            border-radius:5px;
+            background-color:black;
+            color:white;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="btn-group">
+        <button onclick="changeBackground('morning')">Morning</button>
+
+        <button onclick="changeBackground('afternoon')">Afternoon</button>
+
+        <button onclick="changeBackground('evening')">Evening</button>
+
+        <button onclick="changeBackground('night')">Night</button>
+    </div>
+
+    <script>
+
+        function changeBackground(type){
+
+            if(type === 'morning'){
+
+                document.body.style.background =
+                "linear-gradient(to right, yellow, orange)";
+
+            }
+
+            else if(type === 'afternoon'){
+
+                document.body.style.background =
+                "linear-gradient(to right, pink, yellow, orange)";
+
+            }
+
+            else if(type === 'evening'){
+
+                document.body.style.background =
+                "linear-gradient(to right, orange, red)";
+
+            }
+
+            else if(type === 'night'){
+
+                document.body.style.background =
+                "linear-gradient(to right, black, blue)";
+
+            }
+
+            else{
+                alert("Invalid type.!!")
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
