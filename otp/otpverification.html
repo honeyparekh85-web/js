@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+</head>
+
+<body>
+
+    <button id="verifyBtn">Verify OTP</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+
+        const verifyBtn = document.getElementById('verifyBtn');
+        verifyBtn.addEventListener('click', verifyOTP);
+
+        function verifyOTP() {
+
+            const correctOTP = "2157";
+
+            const MAX_ATTEMPTS = 3;
+            let attempts = 0;
+            let userotp = "";
+
+            do {
+                userOtp = prompt(`Enter OTP  ${attempts}/ ${MAX_ATTEMPTS} : `);
+                attempts++;
+
+                if (userOtp === correctOTP) {
+                    document.getElementById('result').innerText = "OTP Verify Successfully.!";
+                    return;
+                }
+            } while (userOtp != correctOTP && attempts < MAX_ATTEMPTS);
+
+            return;}
+            
+    while (userOtp != correctOTP && attempts < MAX_ATTEMPTS);
+
+    
+
+    </script>
+
+
+
+
+</body>
+
+</html>

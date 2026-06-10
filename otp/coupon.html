@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coupon winners</title>
+</head>
+
+<body>
+
+    <button id="couponBtn">Get Coupon</button>
+
+    <h2 id="couponResult"></h2>
+
+    <script>
+
+        const couponBtn = document.getElementById('couponBtn');
+        couponBtn.addEventListener('click', getCoupon);
+
+        function getCoupon() {
+
+            const correctCoupon = "honey21";
+            const MAX_ATTEMPTS = 3;
+            let attempts = 0;
+            let userCoupon = "";
+
+
+            do {
+                userCoupon = prompt(`Enter Coupon Code  ${attempts}/ ${MAX_ATTEMPTS} : `);
+                attempts++;
+
+                if (userCoupon === correctCoupon) {
+                    document.getElementById('couponResult').innerText = "Congratulations! You had won 5lakhs!!";
+                    return;
+                }
+
+            } while (userCoupon != correctCoupon && attempts < MAX_ATTEMPTS);
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
