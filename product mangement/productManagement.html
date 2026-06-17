@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jewelry</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 90%;
+            margin: 4% auto;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 9px;
+        }
+
+        button {
+            padding: 10px 26px;
+            margin: 0 14px;
+            border: 0;
+            border-radius: 5px;
+            background-color: rgb(11, 41, 80);
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn2 {
+            background-color: rgb(192, 229, 241);
+        }
+
+        caption {
+            margin: 12px 0;
+        }
+
+        td img {
+            width: 80px;
+           
+        }
+
+        .form-container {
+            width: 500px;
+            margin: 14% auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 14px 0;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <table>
+            <caption>
+                <h1>Product Management</h1>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="productTable">
+
+            </tbody>
+        </table>
+
+
+
+        <div class="form-container">
+            <input type="text" placeholder="Enter Name" id="name">
+            <input type="text" placeholder="Enter Description" id="description">
+            <input type="text" placeholder="Enter Price" id="price">
+
+            <input type="text" placeholder="Enter Image URL" id="image">
+            <button onclick="addProduct()">Add Product</button>
+        </div>
+
+        <script>
+
+            const products = [
+                {
+                    id: 1,
+                    name: "Tulip Bloom Necklace",
+                    description: "Floral Blue Topaz and Diamond Earrings",
+                    price: 9899,
+                    image: "https://intifashions.com/cdn/shop/files/3_ab42373f-b038-478e-a47a-b656e09eae66.jpg?v=1781328324&width=493"
+                },
+                {
+                    id: 2,
+                    name: "Diamond Earrings",
+                    description: "Floral Blue Topaz and Diamond Earrings",
+                    price: 7899,
+                    image: "https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/o/p/ope23e10-.c.jpg"
+                },
+                {
+                    id: 3,
+                    name: "Pearl Bloom Handchain",
+                    description: "Elegant pearl necklace with golden accents",
+                    price: 18345,
+                    image: "https://intifashions.com/cdn/shop/files/IMG_0746.png?v=1778832906&width=493"
+                },
+                {
+                    id: 4,
+                    name: "Bracelet",
+                    description: "Luxe Twin Line Bracelet",
+                    price: 3299,
+                    image: "https://intifashions.com/cdn/shop/files/17_8731b24f-78c9-4fba-9f34-7484fc447528.jpg?v=1778495258&width=493"
+                },
+                {
+                    id: 5,
+                    name: "ear cuff",
+                    description: "Stylish ear cuff",
+                    price: 1999,
+                    image: "https://intifashions.com/cdn/shop/files/IMG_1106.jpg?v=1779273444&width=493"
+                }
+            ];
+
+            const displayProducts = () => {
+                const productTable = document.getElementById("productTable");
+                productTable.innerHTML = "";
+
+                products.forEach((product) => {
+                    productTable.innerHTML += `<tr>
+                        <td>${product.id}</td>
+                        <td><img src="${product.image}" alt="${product.name}" /></td>
+                        <td>${product.name}</td>
+                        <td>${product.description}</td>
+                        <td>${product.price}</td>
+                        <td>${product.category}</td>
+                        <td><button>Edit</button><button class="btn2">Delete</button></td>
+                    </tr>`;
+                })
+            }
+
+            const addProduct = () => {
+                let name = document.getElementById("name").value;
+                let description = document.getElementById("description").value;
+                let price = document.getElementById("price").value;
+                let category = document.getElementById("category").value;
+                let image = document.getElementById("image").value;
+
+                const newProduct = {
+                    id: products.length + 1,
+                    name,
+                    description,
+                    price: Number(price),
+                    category,
+                    image
+                }
+
+                products.push(newProduct);
+
+                displayProducts();
+            }
+
+
+            displayProducts();
+
+        </script>
+    </body>
+
+</html>
