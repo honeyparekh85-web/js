@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    
+    <h1 id="data"></h1>
+
+    <script>
+
+       
+         const person = {
+            name:"Honey",
+            age:19,
+            city:"Gandhinagar",
+            contact:"0000000000",
+         }
+        
+       
+
+        person.enrollCourse = "Full Stack Development";
+        delete person.contact;
+        let data = "";
+
+        for(let i in person){
+            data += i + " : " + person[i] + "<br>";
+        }
+        document.getElementById("data").innerHTML = data;
+
+
+       
+
+
+    </script>
+</body>
+</html>
