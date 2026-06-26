@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Jewelry</title>
+    <title> Practical Test: Product Management 
+System (CRUD) </title>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
             margin: 0 14px;
             border: 0;
             border-radius: 5px;
-            background-color: rgb(11, 41, 80);
+            background-color: black;
             color: white;
             cursor: pointer;
         }
@@ -52,16 +53,7 @@
            
         }
 
-        .form-container {
-            width: 500px;
-            margin: 14% auto;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 14px 0;
-        }
+   
     </style>
     </head>
 
@@ -102,40 +94,39 @@
             const products = [
                 {
                     id: 1,
-                    name: "Tulip Bloom Necklace",
-                    description: "Floral Blue Topaz and Diamond Earrings",
-                    price: 9899,
-                    image: "https://intifashions.com/cdn/shop/files/3_ab42373f-b038-478e-a47a-b656e09eae66.jpg?v=1781328324&width=493"
+                    name: "Espresso",
+                    description: "Strong and bold single-shot coffee",
+                    price: 199,
+                    image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=500"
                 },
                 {
                     id: 2,
-                    name: "Diamond Earrings",
-                    description: "Floral Blue Topaz and Diamond Earrings",
-                    price: 7899,
-                    image: "https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/o/p/ope23e10-.c.jpg"
+                    name: "Americano",
+                    description: "Espresso mixed with hot water for a smooth taste",
+                    price: 219,
+                    image: "https://images.unsplash.com/photo-1494314671902-399b18174975?w=500"
                 },
                 {
                     id: 3,
-                    name: "Pearl Bloom Handchain",
-                    description: "Elegant pearl necklace with golden accents",
-                    price: 18345,
-                    image: "https://intifashions.com/cdn/shop/files/IMG_0746.png?v=1778832906&width=493"
+                    name: "Flat White",
+                    description: "Velvety steamed milk with rich espresso",
+                    price: 269,
+                    image: "https://images.unsplash.com/photo-1523942839745-7848d6d515c6?w=500"
                 },
                 {
                     id: 4,
-                    name: "Bracelet",
-                    description: "Luxe Twin Line Bracelet",
-                    price: 3299,
-                    image: "https://intifashions.com/cdn/shop/files/17_8731b24f-78c9-4fba-9f34-7484fc447528.jpg?v=1778495258&width=493"
+                    name: "Iced Latte",
+                    description: "Refreshing espresso with chilled milk and ice",
+                    price: 289,
+                    image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500"
                 },
                 {
                     id: 5,
-                    name: "ear cuff",
-                    description: "Stylish ear cuff",
-                    price: 1999,
-                    image: "https://intifashions.com/cdn/shop/files/IMG_1106.jpg?v=1779273444&width=493"
-                }
-            ];
+                    name: "Hazelnut Latte",
+                    description: "Creamy latte infused with hazelnut syrup",
+                    price: 329,
+                    image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=500"
+                }]
 
             const displayProducts = () => {
                 const productTable = document.getElementById("productTable");
