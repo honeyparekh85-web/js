@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <style>
+       .slider-container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    height:100vh;
+}
+
+#slider{
+    width:90%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+}
+
+.slide-left{
+    width:50%;
+}
+
+.slide-left h1{
+    margin-bottom:20px;
+}
+
+.slide-left h3{
+    margin-top:15px;
+    color:#ff6600;
+}
+
+.slide-left p{
+    margin-top:5px;
+    line-height:1.6;
+}
+
+.slide-right{
+    width:65%;
+}
+
+.slide-right img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+   
+}
+
+button{
+    padding:12px 18px;
+    cursor:pointer;
+    font-size:18px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <button id="prevBtn" class="prev"><i class="fa-solid fa-angle-left"></i></button>
+        <div id="slider"></div>
+        <button id="nextBtn" class="next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+
+    <script>
+      const heroSlides = [
+    {
+        id: 1,
+        dish: "Margherita Pizza",
+        ingredients: "Cheese, Tomato, Basil, Pizza Dough",
+        time: "25 Minutes",
+        recipe: "Spread sauce, add cheese & basil, bake until golden.",
+        nutrition: "420 Calories",
+        color: "yellow",
+        image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600"
+    },
+    {
+        id: 2,
+        dish: "Veg Burger",
+        ingredients: "Bun, Veg Patty, Lettuce, Cheese",
+        time: "15 Minutes",
+        recipe: "Grill the patty, assemble with veggies and cheese.",
+        nutrition: "380 Calories",
+        color: "pink",
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
+    },
+    {
+        id: 3,
+        dish: "Pasta Alfredo",
+        ingredients: "Pasta, Cream, Garlic, Parmesan",
+        time: "20 Minutes",
+        recipe: "Cook pasta, prepare creamy sauce and mix together.",
+        nutrition: "510 Calories",
+        color: " blue",
+        image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600"
+    },
+    {
+        id: 4,
+        dish: "Caesar Salad",
+        ingredients: "Lettuce, Croutons, Cheese, Dressing",
+        time: "10 Minutes",
+        recipe: "Mix everything well and serve fresh.",
+        nutrition: "220 Calories",
+        color: "red",
+        image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=600"
+    }
+];
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slider = document.getElementById('slider');
+
+        let slideCount = 0;
+
+
+        function displayContent() {
+
+    document.body.style.backgroundColor = heroSlides[slideCount].color;
+
+    slider.innerHTML = `
+        <div class="slide-left">
+            <h1>${heroSlides[slideCount].dish}</h1>
+
+            <h3> Ingredients</h3>
+            <p>${heroSlides[slideCount].ingredients}</p>
+
+            <h3> Cooking Time</h3>
+            <p>${heroSlides[slideCount].time}</p>
+
+            <h3> Recipe</h3>
+            <p>${heroSlides[slideCount].recipe}</p>
+
+            <h3> Nutrition</h3>
+            <p>${heroSlides[slideCount].nutrition}</p>
+        </div>
+
+        <div class="slide-right">
+            <img src="${heroSlides[slideCount].image}" alt="">
+        </div>
+    `;
+}
+
+
+        prevBtn.addEventListener('click',()=>{
+            slideCount = slideCount-1;
+           if(slideCount < 0){
+    slideCount = heroSlides.length - 1;
+}
+            
+            displayContent();
+        })
+
+
+        nextBtn.addEventListener('click',()=>{
+            slideCount = slideCount+1;
+           if(slideCount >= heroSlides.length){
+    slideCount = 0;
+}
+            
+            displayContent();
+        })
+
+
+        displayContent()
+    </script>
+</body>
