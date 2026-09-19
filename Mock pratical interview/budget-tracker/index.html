@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Tracker System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Budget Tracker</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="#dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#expenseFormSection">Add Expense</a></li>
+            <li class="nav-item"><a class="nav-link" href="#expenseSection">Expenses</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-4 my-lg-5">
+      <section id="dashboard" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
+          <div>
+            <p class="section-label mb-1">Overview</p>
+            <h2 class="mb-0">Dashboard</h2>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6 col-xl-3">
+            <div class="summary-card h-100">
+              <div>
+                <p class="summary-value" id="totalExpenseValue">₹0</p>
+                <p class="summary-label">Total Expenses</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="summary-card h-100">
+              <div>
+                <p class="summary-value" id="transactionValue">0</p>
+                <p class="summary-label">Transactions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="summary-card h-100">
+              <div>
+                <p class="summary-value" id="highestExpenseValue">₹0</p>
+                <p class="summary-label">Highest Expense</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="summary-card h-100">
+              <div>
+                <p class="summary-value" id="averageExpenseValue">₹0</p>
+                <p class="summary-label">Average Expense</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="expenseFormSection" class="mb-5">
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="card shadow-sm border-0 h-100">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3 id="formTitle" class="mb-0">Add Expense</h3>
+                  <button id="cancelEditBtn" class="btn btn-outline-secondary btn-sm d-none" type="button">
+                    Cancel Edit
+                  </button>
+                </div>
+
+                <form id="expenseForm" novalidate>
+                  <div class="mb-3">
+                    <label for="expenseDate" class="form-label">Date</label>
+                    <input id="expenseDate" class="form-control" type="date" />
+                    <div class="invalid-feedback">Please enter a date.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="expenseDescription" class="form-label">Description</label>
+                    <input
+                      id="expenseDescription"
+                      class="form-control"
+                      type="text"
+                      placeholder="Groceries, Travel, Fees..."
+                    />
+                    <div class="invalid-feedback">Please enter an expense description.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="expenseCategory" class="form-label">Category</label>
+                    <select id="expenseCategory" class="form-select">
+                      <option value="">Select category</option>
+                      <option value="Food">Food</option>
+                      <option value="Travel">Travel</option>
+                      <option value="Shopping">Shopping</option>
+                      <option value="Education">Education</option>
+                      <option value="Bills">Bills</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Health">Health</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a category.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="expenseAmount" class="form-label">Amount</label>
+                    <input id="expenseAmount" class="form-control" type="number" min="1" step="0.01" placeholder="0.00" />
+                    <div class="invalid-feedback">Please enter a valid expense amount.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="expensePayment" class="form-label">Payment Method</label>
+                    <select id="expensePayment" class="form-select">
+                      <option value="">Select payment method</option>
+                      <option value="Cash">Cash</option>
+                      <option value="UPI">UPI</option>
+                      <option value="Debit Card">Debit Card</option>
+                      <option value="Credit Card">Credit Card</option>
+                      <option value="Bank Transfer">Bank Transfer</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a payment method.</div>
+                  </div>
+
+                  <button id="submitExpenseBtn" type="submit" class="btn btn-primary w-100">
+                    Add Expense
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="card shadow-sm border-0 h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                  <div>
+                    <p class="section-label mb-1">Overview</p>
+                    <h3 class="mb-0">Expense Summary</h3>
+                  </div>
+                  <div class="small text-muted fw-semibold" id="mostUsedCategory">Most Used Category: N/A</div>
+                </div>
+
+                <div class="summary-boxes row g-3">
+                  <div class="col-sm-6">
+                    <div class="mini-summary">
+                      <span>Total Spent</span>
+                      <strong id="miniTotalSpent">₹0</strong>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mini-summary">
+                      <span>Avg. Expense</span>
+                      <strong id="miniAverageSpent">₹0</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <h5 class="mb-3">Quick Notes</h5>
+                  <ul class="feature-list mb-0">
+                    <li>Track daily expenses with clear categories.</li>
+                    <li>Review spending patterns from the dashboard.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="expenseSection" class="mb-5">
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+              <div>
+                <p class="section-label mb-1">Manage</p>
+                <h3 class="mb-0">Expenses</h3>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-lg-4">
+                <input id="searchInput" class="form-control" type="text" placeholder="Search expenses..." />
+              </div>
+
+              <div class="col-md-4 col-lg-2">
+                <select id="categoryFilter" class="form-select">
+                  <option value="All">All Categories</option>
+                  <option value="Food">Food</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Education">Education</option>
+                  <option value="Bills">Bills</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Health">Health</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="col-md-4 col-lg-2">
+                <select id="dateFilter" class="form-select">
+                  <option value="all">All Dates</option>
+                  <option value="today">Today</option>
+                  <option value="week">This Week</option>
+                  <option value="month">This Month</option>
+                </select>
+              </div>
+
+              <div class="col-md-4 col-lg-4">
+                <select id="sortSelect" class="form-select">
+                  <option value="newest">Newest First</option>
+                  <option value="oldest">Oldest First</option>
+                  <option value="amountLow">Amount: Low to High</option>
+                  <option value="amountHigh">Amount: High to Low</option>
+                  <option value="descAZ">Description: A-Z</option>
+                  <option value="descZA">Description: Z-A</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Payment Method</th>
+                    <th>Amount</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="expenseTableBody"></tbody>
+              </table>
+            </div>
+
+            <div id="emptyState" class="text-center py-5 d-none">
+              <h5>No expenses found.</h5>
+              <p class="text-muted mb-3">Start tracking your spending by adding your first expense.</p>
+              <button id="emptyAddExpenseBtn" class="btn btn-primary" type="button">Add Expense</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer mt-5">
+      <div class="container py-4 text-center text-muted">
+        © 2026 Budget Tracker System<br />
+        Built using HTML, CSS, JavaScript &amp; Bootstrap
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

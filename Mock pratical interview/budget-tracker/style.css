@@ -1,0 +1,174 @@
+body {
+  background: #ffffff;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  background: #000000;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+}
+
+.section-label {
+  color: #000000;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.summary-card {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 16px;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.summary-value {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.summary-label {
+  margin: 0.3rem 0 0;
+  color: #555555;
+}
+
+.card {
+  border: 1px solid #000000;
+  border-radius: 16px;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 1px solid #000000;
+  padding: 0.7rem 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.12);
+}
+
+.btn {
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: #000000;
+  border-color: #000000;
+}
+
+.btn-primary:hover {
+  background: #333333;
+  border-color: #333333;
+}
+
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:focus {
+  color: #000000 !important;
+  background: #ffffff;
+  border-color: #000000;
+}
+
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:focus {
+  color: #ffffff;
+}
+
+.mini-summary {
+  background: #f5f5f5;
+  border: 1px solid #000000;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-summary span {
+  color: #555555;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #000000;
+  font-weight: bold;
+}
+
+.table thead th {
+  background: #f5f5f5;
+  color: #000000;
+}
+
+.badge-category {
+  background: #e5e5e5;
+  color: #000000;
+  border-radius: 999px;
+  padding: 0.38rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.btn-action {
+  padding: 0.42rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.footer {
+  background: #000000;
+  color: white;
+}
+
+.invalid-feedback {
+  display: none;
+}
+
+.is-invalid {
+  border-color: #000000 !important;
+}
+
+.is-invalid ~ .invalid-feedback {
+  color: #000000;
+}
+
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+@media (max-width: 767.98px) {
+  .summary-card {
+    padding: 1rem;
+  }
+
+  .card-body {
+    padding: 1.1rem !important;
+  }
+}
